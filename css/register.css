@@ -1,0 +1,36 @@
+.register-container{
+  height: 100vh;
+  display: flex;
+}
+.register-container .background-img{
+  width: 70%;
+  height: 100%;
+  background-size: cover;
+  background-image: url(../images/register-background.jpg);
+}
+.register-container .form-wrapper{
+  width: 30%;
+  height: 100%;
+}
+.register-container .register-header{
+  text-align: center;
+  font-size: 40px;
+  font-family: sans-serif;
+  margin: 40px 0 25px 0;
+  color: #757575;
+}
+.register-container #register-form{
+  padding: 0 20px;
+}
+.register-container .name-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+.register-container .name-wrapper .input-wrapper{
+  width: 48%;
+}
+.register-container .register-form-action{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
