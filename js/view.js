@@ -15,12 +15,14 @@ view.setActiveScreen = (screenName) => {
       const registerForm = document.getElementById('register-form')
       registerForm.addEventListener('submit', (event) => {
         event.preventDefault()
-        const dataLogin = {
+        const dataRegister= {
           firstName: registerForm.firstName.value,
           lastName: registerForm.lastName.value,
-
+          email: registerForm.email.value,
+          password: registerForm.password.value,
+          confirmPassword: registerForm.confirmPassword.value,
         }
-        console.log(dataLogin)
+        controller.register(dataRegister)
       })
     break
     case 'loginPage':
@@ -31,6 +33,8 @@ view.setActiveScreen = (screenName) => {
         view.setActiveScreen('registerPage')
       })
     break
-    break
   }
+}
+view.setErrorMessage = (elementId, message) => {
+  document.getElementById(elementId).innerText = message
 }
