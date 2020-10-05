@@ -40,3 +40,27 @@ components.registerPage = `
 </div>
 </div>
 `
+components.loginPage = `
+<div class="login-container">
+<div class="background-img"></div>
+<div class="form-wrapper">
+  <div class="login-header">MindX Chat</div>
+  <form id="login-form">
+    <div class="input-wrapper">
+      <input type="email" placeholder="Email" name="email">
+      <div id="email-error" class="err"></div>
+    </div>
+    <div class="input-wrapper">
+      <input type="password" placeholder="Password" name="password">
+      <div id="password-error" class="err"></div>
+    </div>
+    <div class="login-form-action">
+      <div>
+        Don't have account?<span id="redirect-register" class="cursor-pointer">Register</span>
+      </div>
+      <button class="btn" type="submit">Login</button>
+    </div>
+  </form>
+</div>
+</div>
+`
