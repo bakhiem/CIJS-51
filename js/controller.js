@@ -29,12 +29,24 @@ controller.register = (
   }
   if(confirmPassword === '') {
     view.setErrorMessage('confirm-password-error','Please input confirm password')
+  } else if(password !== confirmPassword) {
+    view.setErrorMessage('confirm-password-error',"Password didn't match")
   } else {
     view.setErrorMessage('confirm-password-error','')
   }
-  if(password !== confirmPassword) {
-    view.setErrorMessage('confirm-password-error',"Password didn't match")
-  } else {
-    view.setErrorMessage('confirm-password-error',"")
+  if(firstName !== '' 
+  && lastName !== '' 
+  && email !== ''
+  && password !==''
+  && confirmPassword !== ''
+  && password === confirmPassword
+  ) {
+    const dataRegister = {
+      firstName,
+      lastName,
+      email,
+      password
+    }
+    model.register(dataRegister)
   }
 }
