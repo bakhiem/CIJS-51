@@ -50,3 +50,18 @@ controller.register = (
     model.register(dataRegister)
   }
 }
+controller.login = ({email, password}) => {
+  if(email === '') {
+    view.setErrorMessage('email-error', 'Please input email')
+  } else {
+    view.setErrorMessage('email-error', '')
+  }
+  if(password === '') {
+    view.setErrorMessage('password-error', 'Please input password')
+  } else {
+    view.setErrorMessage('password-error', '')
+  }
+  if(email !== '' && password !== '') {
+    model.login({email, password})
+  }
+}

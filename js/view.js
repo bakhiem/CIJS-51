@@ -32,6 +32,15 @@ view.setActiveScreen = (screenName) => {
       .addEventListener('click', () => {
         view.setActiveScreen('registerPage')
       })
+      const loginForm = document.getElementById('login-form')
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const dataToLogin = {
+          email: loginForm.email.value, 
+          password: loginForm.password.value
+        }
+        controller.login(dataToLogin)
+      })
     break
   }
 }
