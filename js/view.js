@@ -42,8 +42,38 @@ view.setActiveScreen = (screenName) => {
         controller.login(dataToLogin)
       })
     break
+    case 'chatPage': 
+      document.getElementById('app').innerHTML = components.chatPage
+      const sendMessageForm = document.getElementById('send-message-form')
+      sendMessageForm.addEventListener('submit',(e) => {
+        e.preventDefault()  
+        const message = sendMessageForm.message.value
+        console.log(message)
+        const messageSend = {
+          owner: model.currentUser.email,
+          content: message
+        }
+        view.addMessage(messageSend)
+      })
+    break
   }
 }
 view.setErrorMessage = (elementId, message) => {
   document.getElementById(elementId).innerText = message
 }
+view.addMessage = (message) => {
+  const messageWrapper = document.createElement('div')
+  messageWrapper.classList.add('message')
+  if(model.currentUser.email === message.owner) {
+    messageWrapper.classList.add('message-mine')
+    messageWrapper.innerHTML = `
+    <div class="message-content">${message.content}</div>
+    `
+  } else {
+
+  }
+  document.querySelector('.list-messages').appendChild(messageWrapper)
+}
+// <div class="message message-mine "> 
+//    <div class="message-content">ahihi</div>
+// </div>

@@ -5,29 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="./css/chat.css">
 </head>
 <body>
-  <div class="login-container">
-    <div class="background-img"></div>
-    <div class="form-wrapper">
-      <div class="login-header">MindX Chat</div>
-      <form id="login-form">
-        <div class="input-wrapper">
-          <input type="email" placeholder="Email" name="email">
-          <div id="email-error" class="err"></div>
-        </div>
-        <div class="input-wrapper">
-          <input type="password" placeholder="Password" name="password">
-          <div id="password-error" class="err"></div>
-        </div>
-        <div class="login-form-action">
-          <div>
-            Don't have account?<span id="redirect-login" class="cursor-pointer">Register</span>
+  <div class="chat-container">
+    <div class="header">MindX chat</div>
+    <div class="main">
+      <div class="conversation-detail">
+        <div class="conversation-title">First conversation</div>
+        <div class="list-messages">
+          <div class="message message-mine">
+            <div class="message-content">Hello</div>
           </div>
-          <button class="btn" type="submit">Login</button>
+          <div class="message message-other">
+            <div class="owner">Nguyen Y Van</div>
+            <div class="message-content">Hello world</div>
+          </div>
         </div>
-      </form>
+        <form id="send-message-form">
+          <input type="text" placeholder="Type a message" name="message">
+          <button class="btn">Send</button>
+        </form>
+      </div>
     </div>
   </div>
 </body>
