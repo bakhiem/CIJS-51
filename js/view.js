@@ -57,8 +57,11 @@ view.setActiveScreen = (screenName) => {
           owner: 'Bot',
           content: message
         }
-        view.addMessage(messageSend)
-        view.addMessage(messageFromBot)
+        if(message.trim() !== '') {
+          view.addMessage(messageSend)
+          view.addMessage(messageFromBot)
+          sendMessageForm.message.value = ''
+        }
       })
     break
   }
