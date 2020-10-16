@@ -53,7 +53,12 @@ view.setActiveScreen = (screenName) => {
           owner: model.currentUser.email,
           content: message
         }
+        const messageFromBot = {
+          owner: 'Bot',
+          content: message
+        }
         view.addMessage(messageSend)
+        view.addMessage(messageFromBot)
       })
     break
   }
@@ -70,7 +75,11 @@ view.addMessage = (message) => {
     <div class="message-content">${message.content}</div>
     `
   } else {
-
+    messageWrapper.classList.add('message-other')
+    messageWrapper.innerHTML = `
+    <div class="owner">${message.owner}</div>
+    <div class="message-content">${message.content}</div>
+    `
   }
   document.querySelector('.list-messages').appendChild(messageWrapper)
 }
