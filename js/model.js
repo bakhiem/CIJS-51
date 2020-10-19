@@ -1,5 +1,7 @@
 const model = {}
 model.currentUser = {}
+model.conversations = []
+model.currentConversation = {}
 model.register = async ({firstName, lastName, email, password}) => {
   try {
     await firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -43,5 +45,9 @@ model.getConversations = async () => {
   const response = await firebase.firestore()
   .collection('conversations').
   where('users', 'array-contains', model.currentUser.email).get()
-  console.log(getDataFromDocs(response.docs))
+  model.conversations = getDataFromDocs(response.docs)
+  if (model.conversations.length > 0) {
+    model.currentConversation = model.conversations[0]
+    view.showCurrentConversation()
+  }
 }
