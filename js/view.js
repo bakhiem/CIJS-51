@@ -90,6 +90,7 @@ view.addMessage = (message) => {
 // </div>
 
 view.showCurrentConversation = () => {
+  document.querySelector('.list-messages').innerHTML = ''
   document.querySelector('.conversation-title').innerHTML
    = model.currentConversation.title
   for(const oneMessage of model.currentConversation.messages) {

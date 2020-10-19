@@ -41,23 +41,44 @@ model.addMessage = (message) => {
   firebase.firestore().collection('conversations').
   doc(docId).update(dataToUpdate)
 }
-model.getConversations = async () => {
-  const response = await firebase.firestore()
-  .collection('conversations').
-  where('users', 'array-contains', model.currentUser.email).get()
-  model.conversations = getDataFromDocs(response.docs)
-  if (model.conversations.length > 0) {
-    model.currentConversation = model.conversations[0]
-    view.showCurrentConversation()
+  model.getConversations = async () => {
+    const response = await firebase.firestore()
+    .collection('conversations').
+    where('users', 'array-contains', model.currentUser.email).get()
+    model.conversations = getDataFromDocs(response.docs)
+    if (model.conversations.length > 0) {
+      model.currentConversation = model.conversations[0]
+      view.showCurrentConversation()
+    }
   }
-}
 
 model.listenConversationChange = () => {
+  let isFirstRun = true
   firebase
   .firestore()
   .collection('conversations')
   .where('users', 'array-contains', model.currentUser.email)
   .onSnapshot((snapshot) => {
-    console.log(snapshot.docChanges())
+    if(isFirstRun) {
+      isFirstRun = false
+      return
+    }
+    const docChanges = snapshot.docChanges()
+    for(const oneChange of docChanges) {
+      if(oneChange.type === 'modified') {
+        const dataChange = getDataFromDoc(oneChange.doc)
+        for(let i = 0; i < model.conversations.length; i++) {
+          if (model.conversations[i].id === dataChange.id) {
+            model.conversations[i] = dataChange
+          }
+        }
+        if(dataChange.id === model.currentConversation.id) {
+          model.currentConversation = dataChange
+          // view.showCurrentConversation()
+          view
+          .addMessage(model.currentConversation.messages[model.currentConversation.messages.length - 1])
+        }
+      }
+    }
   })
 }
