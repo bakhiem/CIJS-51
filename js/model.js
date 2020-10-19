@@ -51,3 +51,13 @@ model.getConversations = async () => {
     view.showCurrentConversation()
   }
 }
+
+model.listenConversationChange = () => {
+  firebase
+  .firestore()
+  .collection('conversations')
+  .where('users', 'array-contains', model.currentUser.email)
+  .onSnapshot((snapshot) => {
+    console.log(snapshot.docChanges())
+  })
+}

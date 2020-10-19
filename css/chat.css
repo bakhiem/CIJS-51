@@ -58,6 +58,7 @@
 .list-messages .message.message-mine{
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 10px;
 }
 .list-messages .message.message-mine .message-content{
   color: #fff;
