@@ -30,3 +30,18 @@ model.login = async ({email, password}) => {
     console.log(err)
   }
 }
+model.addMessage = (message) => {
+  const docId = 'AjC7oBeONm1lSiiT8XJm'
+  const dataToUpdate = {
+    messages: firebase.firestore.FieldValue
+    .arrayUnion(message)
+  }
+  firebase.firestore().collection('conversations').
+  doc(docId).update(dataToUpdate)
+}
+model.getConversations = async () => {
+  const response = await firebase.firestore()
+  .collection('conversations').
+  where('users', 'array-contains', model.currentUser.email).get()
+  console.log(getDataFromDocs(response.docs))
+}

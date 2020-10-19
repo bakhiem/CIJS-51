@@ -48,21 +48,20 @@ view.setActiveScreen = (screenName) => {
       sendMessageForm.addEventListener('submit',(e) => {
         e.preventDefault()  
         const message = sendMessageForm.message.value
-        console.log(message)
         const messageSend = {
           owner: model.currentUser.email,
-          content: message
-        }
-        const messageFromBot = {
-          owner: 'Bot',
-          content: message
+          content: message,
+          createdAt: new Date().toISOString()
         }
         if(message.trim() !== '') {
-          view.addMessage(messageSend)
-          view.addMessage(messageFromBot)
+          model.addMessage(messageSend)
           sendMessageForm.message.value = ''
         }
       })
+      // lay cac cuoc hoi thoai ve
+      model.getConversations()
+      // lang nghe thay doi cua cac cuoc hoi thoai
+      model.listenConversationChange()
     break
   }
 }
