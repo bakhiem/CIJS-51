@@ -72,4 +72,11 @@
 .chat-container .aside-left{
   width: 15%;
   height: 100%;
+  border-right: 1px solid #dbdbdb;
+}
+.chat-container .aside-left .create-conversation{
+  height: 64px;
+  line-height: 64px;
+  text-align: center;
+  border-bottom: 1px solid #dbdbdb;
 }
