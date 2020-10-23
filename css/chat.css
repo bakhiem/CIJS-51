@@ -44,9 +44,11 @@
 }
 .chat-container .main{
   height: calc(100vh - 64px);
+  display: flex;
 }
 .chat-container .conversation-detail{
   height: 100%;
+  width: 85%;
 }
 .list-messages .message .message-content{
   background-color: #dbdbdb;
@@ -66,4 +68,8 @@
 }
 .list-messages{
   padding: 10px;
+}
+.chat-container .aside-left{
+  width: 15%;
+  height: 100%;
 }
