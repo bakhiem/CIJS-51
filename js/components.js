@@ -64,11 +64,18 @@ components.loginPage = `
 </div>
 </div>
 `
-components.chatPage = 
-`
+components.chatPage =
+  `
 <div class="chat-container">
 <div class="header">MindX chat</div>
 <div class="main">
+<div class="aside-left">
+<div class="create-conversation">
+  <button class="btn cursor-pointer">+ New conversation</button>
+</div>
+<div class="list-conversations">
+</div>
+</div>
   <div class="conversation-detail">
     <div class="conversation-title">First conversation</div>
     <div class="list-messages">

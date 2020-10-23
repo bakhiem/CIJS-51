@@ -33,7 +33,7 @@ model.login = async ({email, password}) => {
   }
 }
 model.addMessage = (message) => {
-  const docId = 'AjC7oBeONm1lSiiT8XJm'
+  const docId = model.currentConversation.id
   const dataToUpdate = {
     messages: firebase.firestore.FieldValue
     .arrayUnion(message)
@@ -49,6 +49,7 @@ model.addMessage = (message) => {
     if (model.conversations.length > 0) {
       model.currentConversation = model.conversations[0]
       view.showCurrentConversation()
+      view.showListConversation()
     }
   }
 
@@ -77,6 +78,7 @@ model.listenConversationChange = () => {
           // view.showCurrentConversation()
           view
           .addMessage(model.currentConversation.messages[model.currentConversation.messages.length - 1])
+          view.scrollToEndElm()
         }
       }
     }

@@ -96,4 +96,52 @@ view.showCurrentConversation = () => {
   for(const oneMessage of model.currentConversation.messages) {
     view.addMessage(oneMessage)
   }
+  view.scrollToEndElm()
+}
+
+view.showListConversation = () => {
+  for(const conversation of model.conversations) {
+    view.addConversation(conversation)
+  }
+}
+view.addConversation = (conversation) => {
+  // tao the div
+  const conversationWrapper = document.createElement('div')
+  // them class
+  conversationWrapper.classList.add('conversation')
+  if(conversation.id === model.currentConversation.id) {
+    conversationWrapper.classList.add('current')
+  }
+  // sua innerHtml
+  conversationWrapper.innerHTML = `
+    <div class="left-conversation-title">
+      ${conversation.title}
+    </div>
+    <div class="num-of-user">
+      ${conversation.users.length} users
+    </div>
+  `
+  // them len tren giao dien
+  document
+  .querySelector('.list-conversations')
+  .appendChild(conversationWrapper)
+  // console.log(conversationWrapper)
+  conversationWrapper.addEventListener('click', () => {
+    // xoa current class cu
+    const current = document.querySelector('.current')
+    current.classList.remove('current')
+    // them current vao cai duoc click
+    conversationWrapper.classList.add('current')
+    // show conversation duoc click len man hinh
+    for(const elm of model.conversations) {
+      if(elm.id === conversation.id) {
+        model.currentConversation = elm
+        view.showCurrentConversation()
+      }
+    }
+  })
+}
+view.scrollToEndElm = () => {
+  const elm = document.querySelector('.list-messages')
+  elm.scrollTop = elm.scrollHeight
 }

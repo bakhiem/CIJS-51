@@ -80,3 +80,10 @@
   text-align: center;
   border-bottom: 1px solid #dbdbdb;
 }
+.chat-container .aside-left .conversation{
+  padding: 10px;
+  cursor: pointer;
+}
+.chat-container .conversation.current{
+  background-color: #dbdbdb;
+}
