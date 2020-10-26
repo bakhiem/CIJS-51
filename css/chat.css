@@ -46,6 +46,7 @@
   border-radius: 8px;
   max-width: 45%;
   width: max-content;
+  word-break: break-all;
 }
 .list-messages .message.message-mine{
   display: flex;

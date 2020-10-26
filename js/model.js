@@ -80,6 +80,10 @@ model.listenConversationChange = () => {
           .addMessage(model.currentConversation.messages[model.currentConversation.messages.length - 1])
           view.scrollToEndElm()
         }
+      } else if(oneChange.type === 'added') {
+        const dataChange = getDataFromDoc(oneChange.doc)
+        model.conversations.push(dataChange)
+        view.addConversation(dataChange)
       }
     }
   })
