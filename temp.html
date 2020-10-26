@@ -8,49 +8,23 @@
   <link rel="stylesheet" href="./css/chat.css">
 </head>
 <body>
-  <div class="chat-container">
+  <div class="create-conversation-container">
     <div class="header">MindX chat</div>
-    <div class="main">
-      <div class="aside-left">
-        <div class="create-conversation">
-          <button class="btn cursor-pointer">+ New conversation</button>
-        </div>
-        <div class="list-conversations">
-          <div class="conversation current">
-            <div class="left-conversation-title">
-              First conversation
-            </div>
-            <div class="num-of-user">
-              2 users
-            </div>
-          </div>
-          <div class="conversation">
-            <div class="left-conversation-title">
-              Second conversation
-            </div>
-            <div class="num-of-user">
-              2 users
-            </div>
-          </div>
-        </div>
+    <form id="create-conversation-form" style="padding: 40px 20%">
+      <h3 class="mb-1">Create a new conversation</h3>
+      <div class="input-wrapper">
+        <input type="text" name="title" placeholder="Conversation name">
+        <div id="conversation-title-error" class="err"></div>
       </div>
-      <div class="conversation-detail">
-        <div class="conversation-title">First conversation</div>
-        <div class="list-messages">
-          <div class="message message-mine">
-            <div class="message-content">Hello</div>
-          </div>
-          <div class="message message-other">
-            <div class="owner">Nguyen Y Van</div>
-            <div class="message-content">Hello world</div>
-          </div>
-        </div>
-        <form id="send-message-form">
-          <input type="text" placeholder="Type a message" name="message">
-          <button class="btn">Send</button>
-        </form>
+      <div class="input-wrapper">
+        <input type="text" name="title" placeholder="Friend email">
+        <div id="conversation-email-error" class="err"></div>
       </div>
-    </div>
+      <div class="action">
+        <button type="submit" class="btn">Save</button>
+        <button type="button" class="btn btn-light">Cancel</button>
+      </div>
+    </form>
   </div>
 </body>
 </html>

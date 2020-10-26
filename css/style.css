@@ -25,3 +25,18 @@
 .err{
   color: red;
 }
+.header{
+  color: #fff;
+  background: #037BFE;
+  text-align: center;
+  height: 64px;
+  line-height: 64px;
+  font-size: 24px;
+}
+.mb-1{
+  margin-bottom: 1rem;
+}
+.btn-light{
+  background-color: #fafafa;
+  color: #333;
+}

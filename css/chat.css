@@ -1,14 +1,4 @@
-.chat-container .header{
-  color: #fff;
-  background: #037BFE;
-  text-align: center;
-  height: 64px;
-  line-height: 64px;
-  font-size: 24px;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-}
+
 .chat-container .conversation-title{
   height: 64px;
   line-height: 64px;
