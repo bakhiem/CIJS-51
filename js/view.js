@@ -1,5 +1,5 @@
 const view = {}
-view.setActiveScreen = (screenName) => {
+view.setActiveScreen = (screenName, fromCreate = false) => {
   switch(screenName) {
     case 'welcomeScreen':
       document.getElementById('app').innerHTML 
@@ -58,10 +58,27 @@ view.setActiveScreen = (screenName) => {
           sendMessageForm.message.value = ''
         }
       })
-      // lay cac cuoc hoi thoai ve
-      model.getConversations()
-      // lang nghe thay doi cua cac cuoc hoi thoai
-      model.listenConversationChange()
+      if(!fromCreate) {
+        // lay cac cuoc hoi thoai ve
+        model.getConversations()
+        // lang nghe thay doi cua cac cuoc hoi thoai
+        model.listenConversationChange()
+      } else {
+        view.showCurrentConversation()
+        view.showListConversation()
+      }
+      document.querySelector('.create-conversation button')
+      .addEventListener('click', () => {
+        view.setActiveScreen('createConversationScreen')
+      })
+    break
+    case 'createConversationScreen' :
+      document.getElementById('app').innerHTML = 
+      components.createConversationScreen
+      document.querySelector('#return-chat')
+      .addEventListener('click', () => {
+        view.setActiveScreen('chatPage', true)
+      })
     break
   }
 }
