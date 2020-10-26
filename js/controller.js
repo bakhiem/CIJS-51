@@ -76,7 +76,7 @@ controller.createConversation = ({title, email}) => {
   const messageTile = title === '' ? 'Please input title' : ''
   view.setErrorMessage('conversation-title-error', messageTile)
   if(email !== '' && validateEmail(email) && title !== '') {
-    model.addConversation({title: title, email: email})
+    model.addConversation({title, email})
   }
 }
 function validateEmail(email) {

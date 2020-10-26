@@ -84,3 +84,13 @@ model.listenConversationChange = () => {
     }
   })
 }
+model.addConversation = ({title, email}) => {
+  const dataToAdd = {
+    title,
+    createdAt: new Date().toISOString(),
+    messages: [],
+    users: [model.currentUser.email, email]
+  }
+  firebase.firestore().collection('conversations').add(dataToAdd)
+  view.setActiveScreen('chatPage', true)
+}
