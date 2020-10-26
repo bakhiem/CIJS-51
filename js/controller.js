@@ -65,3 +65,21 @@ controller.login = ({email, password}) => {
     model.login({email, password})
   }
 }
+controller.createConversation = ({title, email}) => {
+  if(email === '') {
+    view.setErrorMessage('conversation-email-error', 'Please input email')
+  } else if(!validateEmail(email)) {
+    view.setErrorMessage('conversation-email-error', 'Invalid email')
+  } else {
+    view.setErrorMessage('conversation-email-error', '')
+  }
+  const messageTile = title === '' ? 'Please input title' : ''
+  view.setErrorMessage('conversation-title-error', messageTile)
+  if(email !== '' && validateEmail(email) && title !== '') {
+    model.addConversation({title: title, email: email})
+  }
+}
+function validateEmail(email) {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}

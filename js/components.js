@@ -98,7 +98,7 @@ components.createConversationScreen = `
     <div id="conversation-title-error" class="err"></div>
   </div>
   <div class="input-wrapper">
-    <input type="text" name="title" placeholder="Friend email">
+    <input type="text" name="email" placeholder="Friend email">
     <div id="conversation-email-error" class="err"></div>
   </div>
   <div class="action">
