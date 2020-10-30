@@ -38,7 +38,7 @@
 }
 .chat-container .conversation-detail{
   height: 100%;
-  width: 85%;
+  width: 70%;
 }
 .list-messages .message .message-content{
   background-color: #dbdbdb;
@@ -77,4 +77,9 @@
 }
 .chat-container .conversation.current{
   background-color: #dbdbdb;
+}
+.chat-container .aside-right{
+  width: 15%;
+  padding: 10px;
+  border-left: 1px solid #dbdbdb;
 }
