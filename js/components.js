@@ -87,8 +87,6 @@ components.chatPage =
     </div>
     <div class="aside-right">
       <div class="list-users mb-1">
-        <div class="user">khiemnb2705@gmail.com</div>
-        <div class="user">khiemnb27051@gmail.com</div>
       </div>
       <form id="add-user-form">
         <div class="input-wrapper">

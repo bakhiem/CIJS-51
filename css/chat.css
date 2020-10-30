@@ -74,6 +74,7 @@
 .chat-container .aside-left .conversation{
   padding: 10px;
   cursor: pointer;
+  position: relative;
 }
 .chat-container .conversation.current{
   background-color: #dbdbdb;
@@ -82,4 +83,14 @@
   width: 15%;
   padding: 10px;
   border-left: 1px solid #dbdbdb;
+}
+.chat-container .notification{
+  width: 15px;
+  height: 15px;
+  background-color: #037BFE;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  top: 22px;
+  display: none;
 }

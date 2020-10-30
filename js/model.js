@@ -74,17 +74,28 @@ model.listenConversationChange = () => {
           }
         }
         if(dataChange.id === model.currentConversation.id) {
+          if(model.currentConversation.users.length !== dataChange.users.length) {
+            view.addUser(dataChange.users[dataChange.users.length - 1])
+          } else {
+            const lastMsg = dataChange.messages[dataChange.messages.length - 1]
+            if(lastMsg.owner !== model.currentUser.email) {
+              view.showNotification(dataChange.id)
+            }
+            view
+            .addMessage(dataChange.messages[dataChange.messages.length - 1])
+            view.scrollToEndElm()
+          }
           model.currentConversation = dataChange
-          // view.showCurrentConversation()
-          view
-          .addMessage(model.currentConversation.messages[model.currentConversation.messages.length - 1])
-          view.scrollToEndElm()
+        } else {
+          view.showNotification(dataChange.id)
         }
       } else if(oneChange.type === 'added') {
         const dataChange = getDataFromDoc(oneChange.doc)
         model.conversations.push(dataChange)
         view.addConversation(dataChange)
       }
+      // const change = getDataFromDoc(oneChange.doc)
+      // view.showNotification(change.id)
     }
   })
 }

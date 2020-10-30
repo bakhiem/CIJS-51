@@ -127,10 +127,14 @@ view.addMessage = (message) => {
 
 view.showCurrentConversation = () => {
   document.querySelector('.list-messages').innerHTML = ''
+  document.querySelector('.list-users').innerHTML = ''
   document.querySelector('.conversation-title').innerHTML
    = model.currentConversation.title
   for(const oneMessage of model.currentConversation.messages) {
     view.addMessage(oneMessage)
+  }
+  for(const user of model.currentConversation.users) {
+    view.addUser(user)
   }
   view.scrollToEndElm()
 }
@@ -145,6 +149,7 @@ view.addConversation = (conversation) => {
   const conversationWrapper = document.createElement('div')
   // them class
   conversationWrapper.classList.add('conversation')
+  conversationWrapper.id = conversation.id
   if(conversation.id === model.currentConversation.id) {
     conversationWrapper.classList.add('current')
   }
@@ -156,6 +161,7 @@ view.addConversation = (conversation) => {
     <div class="num-of-user">
       ${conversation.users.length} users
     </div>
+    <div class="notification"></div>
   `
   // them len tren giao dien
   document
@@ -180,4 +186,19 @@ view.addConversation = (conversation) => {
 view.scrollToEndElm = () => {
   const elm = document.querySelector('.list-messages')
   elm.scrollTop = elm.scrollHeight
+}
+view.addUser = (user) => {
+  const userElement = document.createElement('div')
+  // userElement = <div></div>
+  userElement.classList.add('user')
+  // userElement = <div class="user"></div>
+  userElement.innerText = user
+  // userElement = <div class="user">khiemnb2705@gmail.com</div>
+  document.querySelector('.list-users')
+  .appendChild(userElement)
+}
+view.showNotification = (id) => {
+  const conversationElement = document.getElementById(id)
+  // conversationElement.lastElementChild.style = 'display: block'
+  conversationElement.querySelector('.notification').style = 'display: block'
 }
