@@ -66,27 +66,39 @@ components.loginPage = `
 `
 components.chatPage =
   `
-<div class="chat-container">
-<div class="header">MindX chat</div>
-<div class="main">
-<div class="aside-left">
-<div class="create-conversation">
-  <button class="btn cursor-pointer">+ New conversation</button>
-</div>
-<div class="list-conversations">
-</div>
-</div>
-  <div class="conversation-detail">
-    <div class="conversation-title">First conversation</div>
-    <div class="list-messages">
+  <div class="chat-container">
+    <div class="header">MindX chat</div>
+    <div class="main">
+    <div class="aside-left">
+    <div class="create-conversation">
+      <button class="btn cursor-pointer">+ New conversation</button>
     </div>
-    <form id="send-message-form">
-      <input type="text" placeholder="Type a message" name="message">
-      <button class="btn">Send</button>
-    </form>
+    <div class="list-conversations">
+    </div>
+    </div>
+    <div class="conversation-detail">
+      <div class="conversation-title">First conversation</div>
+      <div class="list-messages">
+      </div>
+      <form id="send-message-form">
+        <input type="text" placeholder="Type a message" name="message">
+        <button class="btn">Send</button>
+      </form>
+    </div>
+    <div class="aside-right">
+      <div class="list-users mb-1">
+        <div class="user">khiemnb2705@gmail.com</div>
+        <div class="user">khiemnb27051@gmail.com</div>
+      </div>
+      <form id="add-user-form">
+        <div class="input-wrapper">
+          <input type="text" name="email" placeholder="Input friend email">
+        </div>
+        <button class="btn">Add</button>
+      </form>
+    </div>
+    </div>
   </div>
-</div>
-</div>
 `
 components.createConversationScreen = `
 <div class="create-conversation-container">

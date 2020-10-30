@@ -71,6 +71,15 @@ view.setActiveScreen = (screenName, fromCreate = false) => {
       .addEventListener('click', () => {
         view.setActiveScreen('createConversationScreen')
       })
+      const addUserForm = document.getElementById('add-user-form')
+      addUserForm.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const email = addUserForm.email.value
+        if(email !== '') {
+          model.addUser(email)
+        }
+        addUserForm.email.value = ''
+      })
     break
     case 'createConversationScreen' :
       document.getElementById('app').innerHTML = 

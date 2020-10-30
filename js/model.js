@@ -98,3 +98,10 @@ model.addConversation = ({title, email}) => {
   firebase.firestore().collection('conversations').add(dataToAdd)
   view.setActiveScreen('chatPage', true)
 }
+model.addUser = (email) => {
+  const dataToUpdate = {
+    users: firebase.firestore.FieldValue.arrayUnion(email)
+  }
+  firebase.firestore().collection('conversations').
+  doc(model.currentConversation.id).update(dataToUpdate)
+}
