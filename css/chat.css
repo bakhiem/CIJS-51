@@ -94,3 +94,14 @@
   top: 22px;
   display: none;
 }
+@media only screen and (max-width: 768px) {
+  .chat-container .aside-right {
+    display: none;
+  }
+  .chat-container .conversation-detail{
+    width: 85%;
+  }
+  .num-of-user{
+    display: none;
+  }
+}

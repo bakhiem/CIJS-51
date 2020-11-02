@@ -42,7 +42,7 @@ view.setActiveScreen = (screenName, fromCreate = false) => {
         controller.login(dataToLogin)
       })
     break
-    case 'chatPage': 
+    case 'chatPage':
       document.getElementById('app').innerHTML = components.chatPage
       const sendMessageForm = document.getElementById('send-message-form')
       sendMessageForm.addEventListener('submit',(e) => {
@@ -80,6 +80,15 @@ view.setActiveScreen = (screenName, fromCreate = false) => {
         }
         addUserForm.email.value = ''
       })
+      document.querySelector('#send-message-form input').
+      addEventListener('click', () => {
+        view.hideNotification(model.currentConversation.id)
+      })
+      const mediaQuery = window.matchMedia('screen and (max-width: 768px)')
+      console.log(mediaQuery)
+      if(mediaQuery.matches) {
+        document.querySelector('.create-conversation button').innerHTML ='<i class="fa fa-plus-circle" aria-hidden="true"></i>'
+      }
     break
     case 'createConversationScreen' :
       document.getElementById('app').innerHTML = 
