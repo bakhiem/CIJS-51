@@ -181,6 +181,7 @@ view.addConversation = (conversation) => {
         view.showCurrentConversation()
       }
     }
+    view.hideNotification(conversation.id)
   })
 }
 view.scrollToEndElm = () => {
@@ -201,4 +202,8 @@ view.showNotification = (id) => {
   const conversationElement = document.getElementById(id)
   // conversationElement.lastElementChild.style = 'display: block'
   conversationElement.querySelector('.notification').style = 'display: block'
+}
+view.hideNotification = (id) => {
+  const conversationElement = document.getElementById(id)
+  conversationElement.querySelector('.notification').style = 'display: none'
 }
